@@ -82,7 +82,7 @@ const Welcome: FC<IWelcomeProps> = ({
 
   const renderHeader = () => {
     return (
-      <div className='absolute top-0 left-0 right-0 flex items-center justify-between border-b border-gray-100 mobile:h-12 tablet:h-16 px-8 bg-white'>
+      <div className='absolute top-0 left-0 right-0 flex items-center justify-between border-b border-gray-100 mobile:h-12 tablet:h-16 px-8'>
         <div className='text-gray-900'>{conversationName}</div>
       </div>
     )
@@ -327,7 +327,7 @@ const Welcome: FC<IWelcomeProps> = ({
         {hasSetInputs && renderHasSetInputs()}
 
         {/* foot */}
-        {!hasSetInputs && (
+        {/* {!hasSetInputs && (
           <div className='mt-4 flex justify-between items-center h-8 text-xs text-gray-400'>
 
             {siteInfo.privacy_policy
@@ -341,7 +341,7 @@ const Welcome: FC<IWelcomeProps> = ({
               : <div>
               </div>}
           </div>
-        )}
+        )} */}
       </div>
     </div >
   )
