@@ -256,6 +256,8 @@ const Main: FC<IMainProps> = () => {
 
         if (isNotNewConversation)
           setCurrConversationId(_conversationId, APP_ID, false)
+        else
+          handleStartChat({})
 
         setInited(true)
       }
