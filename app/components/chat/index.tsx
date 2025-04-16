@@ -50,8 +50,16 @@ const Chat: FC<IChatProps> = ({
   const { t } = useTranslation()
   const { notify } = Toast
   const isUseInputMethod = useRef(false)
+  const textareaRef = useRef<any>(null)
 
   const [query, setQuery] = React.useState('')
+
+  // Focus textarea when component mounts
+  useEffect(() => {
+    if (textareaRef.current?.nativeElement)
+      textareaRef.current.nativeElement.focus()
+  }, [])
+
   const handleContentChange = (e: any) => {
     const value = e.target.value
     setQuery(value)
@@ -171,6 +179,7 @@ const Chat: FC<IChatProps> = ({
                 )
               }
               <Textarea
+                ref={textareaRef}
                 className={`
                   block w-full px-2 pr-[118px] py-[7px] leading-5 max-h-none text-sm text-gray-700 outline-none appearance-none resize-none
                   ${visionConfig?.enabled && 'pl-12'}
@@ -180,6 +189,7 @@ const Chat: FC<IChatProps> = ({
                 onKeyUp={handleKeyUp}
                 onKeyDown={handleKeyDown}
                 autoSize
+                autoFocus
               />
               <div className="absolute bottom-2 right-2 flex items-center h-8">
                 <div className={`${s.count} mr-4 h-5 leading-5 text-sm bg-gray-50 text-gray-500`}>{query.trim().length}</div>
